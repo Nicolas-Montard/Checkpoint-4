@@ -1,0 +1,16 @@
+.navbar-spacing{
+  height: 58px;
+}
+
+.navbar{
+  .site-name-a{
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .site-name{
+    margin: 0;
+  }
+}
