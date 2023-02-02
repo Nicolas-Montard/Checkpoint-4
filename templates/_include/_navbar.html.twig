@@ -1,13 +1,21 @@
 <nav class="navbar bg-primary fixed-top">
-    <div class="d-flex">
-        <div class="container-fluid d-flex">
-            <button class="border-0 navbar-toggler" type="button" data-bs-toggle="offcanvas"
+    <div class="d-flex justify-content-between w-100">
+            <button class="border-0 navbar-toggler ms-2" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        </div>
 
         <a href="/" class="site-name-a"><h1 class="fs-2 text-white site-name">MarmiWild</h1></a>
+
+        {% if app.user %}
+            <div class="d-flex">
+                <p class="fs-6 text-white my-auto me-2">{{ app.user.email }}</p>
+                <a href="{{ path('app_logout') }}" class="text-white fs-5 my-auto me-4 connexion">Déconnexion</a>
+            </div>
+        {% else %}
+            <a href="{{ path('app_login') }}" class="text-white fs-5 my-auto me-4 connexion">Connexion</a>
+        {% endif %}
+
     </div>
 
     <div class="navPannel offcanvas offcanvas-start bg-primary text-light text-uppercase shadow-sm"
