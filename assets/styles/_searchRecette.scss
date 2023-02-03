@@ -1,0 +1,10 @@
+.search-recette{
+  .col-recette{
+    padding-right: 2rem;
+    padding-left: 2rem;
+    @include media-breakpoint-up(xl) {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+}

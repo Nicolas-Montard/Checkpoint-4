@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recette{% endblock %}
+
+{% block body %}
+    <main class="container showRecette mb-4">
+        <div class="d-flex justify-content-between align-items-center mt-2">
+            <a href="{{ path('app_recette_index') }}"><button class="btn btn-primary">Retour</button></a>
+            {% if app.user == recette.owner %}
+            <div class="d-flex flex-column">
+                <a href="{{ path('app_recette_edit', {id: recette.id}) }}" class="mb-1"><button class="btn btn-primary">Editer</button></a>
+                {{ include('recette/_delete_form.html.twig') }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="d-flex flex-column align-items-center">
+            <h1 class="mt-2">{{ recette.title }}</h1>
+            <img src="../{{ vich_uploader_asset(recette) }}" alt="image de {{ recette.title }}" class="ms-auto me-auto">
+        </div>
+        <h3 class="mt-5 fs-5"><strong>{{ recette.description|nl2br }}</strong></h3>
+        <h2 class="mt-5"><strong>Les ingrédients :</strong></h2>
+        <p>{{ recette.ingredient|nl2br }}</p>
+        <h2 class="mt-5"><strong>Les étapes :</strong></h2>
+        <p>{{ recette.step|nl2br }}</p>
+    </main>
+{% endblock %}

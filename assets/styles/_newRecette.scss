@@ -1,0 +1,18 @@
+.new-recette{
+  .category-picture{
+    @include media-breakpoint-down(lg) {
+      flex-direction: column;
+    }
+    @include media-breakpoint-up(lg) {
+      .category{
+        width: 30vw;
+      }
+      .pictureFile{
+        width: 30vw;
+      }
+    }
+  }
+  .other-field{
+    height: 10rem;
+  }
+}

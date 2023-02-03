@@ -16,5 +16,17 @@
   .connexion{
     text-decoration: none;
   }
-
+  @include media-breakpoint-down(lg) {
+    .site-name-a{
+      left: 36%;
+    }
+    .userEmail{
+      display: none;
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    .navbar-email{
+      display: none;
+    }
+  }
 }

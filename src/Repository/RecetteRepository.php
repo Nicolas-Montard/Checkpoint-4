@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Recette;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -39,6 +40,28 @@ class RecetteRepository extends ServiceEntityRepository
         }
     }
 
+    public function findRecetteByCategory(string $category, int $limit = 0)
+    {
+        $qb = $this->createQueryBuilder('r')
+            ->select('r')
+            ->join('r.category', 'c')
+            ->where('c.name = :category')
+            ->setParameter('category', $category);
+        if ($limit != 0){
+            $qb->setMaxResults($limit)
+                ->add('orderBy', 'r.id DESC');
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function findBySearch(mixed $form)
+    {
+        $qb = $this->createQueryBuilder('r')
+            ->where('r.title LIKE :searchQuery')
+            ->setParameter('searchQuery', $form['searchQuery']);
+        return $qb->getQuery()->getResult();
+    }
 //    /**
 //     * @return Recette[] Returns an array of Recette objects
 //     */

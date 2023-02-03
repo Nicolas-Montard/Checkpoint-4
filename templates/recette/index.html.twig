@@ -1,20 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RecetteController!{% endblock %}
+{% block title %}Recette index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/developement/checkpoint/checkpoint-4/checkpoint-4/src/Controller/RecetteController.php'|file_link(0) }}">src/Controller/RecetteController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/developement/checkpoint/checkpoint-4/checkpoint-4/templates/recette/index.html.twig'|file_link(0) }}">templates/recette/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <main class="search-recette">
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 recettes">
+            {% for recette in recettes %}
+                <div class="col col-recette mb-5">
+                    {% include '_include/_card_recette.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+    </main>
 {% endblock %}

@@ -21,7 +21,9 @@
                 <div class="mt-1">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
 
-            <button class="btn btn-primary mt-3" type="submit">login</button>
+            <button class="btn btn-primary mt-3 mb-2" type="submit">login</button>
+
+            <p>Pas encore enregistré ? créer un compte <a href="{{ path('app_register') }}"> ici</a></p>
         </form>
     </main>
 {% endblock %}
