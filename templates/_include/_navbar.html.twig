@@ -9,7 +9,7 @@
 
         {% if app.user %}
             <div class="d-flex">
-                <p class="fs-6 text-white my-auto me-2">{{ app.user.email }}</p>
+                <p class="fs-6 text-white my-auto me-2 userEmail">{{ app.user.email }}</p>
                 <a href="{{ path('app_logout') }}" class="text-white fs-5 my-auto me-4 connexion">Déconnexion</a>
             </div>
         {% else %}
@@ -22,16 +22,36 @@
          data-bs-scroll="true"
          data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
-            <button type="button" class="btn-close close-cross ms-auto mt-2 me-2" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
+
         </div>
         <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li>
-                    <p>test1</p>
+            {% if app.user %}
+                <h2 class="fs-5 mt-4 navbar-email">{{ app.user.email }}</h2>
+            {% endif %}
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 mt-5">
+                <li class="mb-3">
+                    <a href="{{ path('app_recette_owner') }}" class="text-white link-category">Mes recettes</a>
                 </li>
-                <li>
-                    <p>test2</p>
+                <li class="mb-3">
+                    <a href="{{ path('app_recette_new') }}" class="text-white link-category">Nouvelle recette</a>
+                </li>
+                <li class="mb-3">
+                    <a href="{{ path('app_recette_category', {category: 1}) }}" class="text-white link-category">Apéro</a>
+                </li>
+                <li class="mb-3">
+                    <a href="{{ path('app_recette_category', {category: 2}) }}" class="text-white link-category">Entrée</a>
+                </li>
+                <li class="mb-3">
+                    <a href="{{ path('app_recette_category', {category: 3}) }}" class="text-white link-category">Plat</a>
+                </li>
+                <li class="mb-3">
+                    <a href="{{ path('app_recette_category', {category: 4}) }}" class="text-white link-category">Dessert</a>
+                </li>
+                <li class="mb-3">
+                    <a href="{{ path('app_recette_category', {category: 5}) }}" class="text-white link-category">Boisson</a>
+                </li>
+                <li class="mb-3">
+                    <a href="{{ path('app_recette_category', {category: 6}) }}" class="text-white link-category">Accompagnement</a>
                 </li>
             </ul>
         </div>

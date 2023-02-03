@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <main class="container-fluid home">
+        {% include '_include/_searchBar.html.twig' %}
+        <h1 class="fs-2 mb-4">Entrée pouvant vous intéressez:</h1>
+        <div class="row row-cols-lg-3 row-cols-1 recettes">
+            {% for recette in entrees %}
+                <div class="col col-recette mb-3">
+                    {% include '_include/_card_recette.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{{ path('app_recette_category', {category: 2}) }}" class="d-flex justify-content-center"><button class="btn btn-primary mb-3">Voir toutes les entrées</button></a>
+        <h1 class="fs-2 mb-4">Plat pouvant vous intéressez:</h1>
+        <div class="row row-cols-lg-3 row-cols-1 recettes">
+            {% for recette in plats %}
+                <div class="col col-recette mb-3">
+                    {% include '_include/_card_recette.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{{ path('app_recette_category', {category: 3}) }}" class="d-flex justify-content-center"><button class="btn btn-primary mb-3">Voir tous les plats</button></a>
+        <h1 class="fs-2 mb-4">Desserts pouvant vous intéressez:</h1>
+        <div class="row row-cols-lg-3 row-cols-1 recettes">
+            {% for recette in desserts %}
+                <div class="col col-recette mb-3">
+                    {% include '_include/_card_recette.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{{ path('app_recette_category', {category: 4}) }}" class="d-flex justify-content-center mb-3"><button class="btn btn-primary">Voir tous les desserts</button></a>
+    </main>
+
+{% endblock %}

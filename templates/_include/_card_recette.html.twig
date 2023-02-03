@@ -1,0 +1,7 @@
+<article class="card-recette card p-0 shadow-sm">
+    <img src="/{{ vich_uploader_asset(recette) }}" alt="image de {{ recette.title }}" class="card-img-top">
+    <div class="card-body">
+        <h1 class="fs-5 text-center">{{ recette.title }}</h1>
+        <a href="{{ path('app_recette_show', {id: recette.id}) }}" class="d-flex justify-content-center mt-3"><button class="btn btn-primary"> Consulter cette recette</button></a>
+    </div>
+</article>
